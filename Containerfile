@@ -192,7 +192,7 @@ COPY --from=sources /usr/local /usr/local
 RUN <<BASHSCRIPT
   PACKAGES=(
     # Compilers
-    clang compiler-rt
+    clang compiler-rt rust
     # BASERUBY
     ruby-devel
     # Ruby build system deps
