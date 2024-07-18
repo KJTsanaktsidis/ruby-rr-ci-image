@@ -196,7 +196,7 @@ RUN <<BASHSCRIPT
     # BASERUBY
     ruby-devel
     # Ruby build system deps
-    make autoconf
+    make autoconf diffutils gperf
     # Ruby's build dependency libraries
     # Need the -devel versions, even though we have copies in /usr/local/asan, because
     # we didn't copy the headers there.
