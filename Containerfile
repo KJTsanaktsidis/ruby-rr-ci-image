@@ -195,6 +195,8 @@ RUN <<BASHSCRIPT
     clang compiler-rt
     # BASERUBY
     ruby-devel
+    # Ruby build system deps
+    make autoconf
     # Ruby's build dependency libraries
     # Need the -devel versions, even though we have copies in /usr/local/asan, because
     # we didn't copy the headers there.
