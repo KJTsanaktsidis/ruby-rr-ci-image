@@ -7,13 +7,11 @@ pipeline {
     stage('Build Image') {
       steps {
         sh "podman build --no-cache --tag quay.io/kjtsanaktsidis/ruby-rr-ci:${env.GIT_COMMIT} ."
-        sh "podman build --target sources --tag quay.io/kjtsanaktsidis/ruby-rr-ci/sources:${env.GIT_COMMIT} ."
       }
     }
     stage('Push Image (commit)') {
       steps {
         withCredentials([file(credentialsId: 'podman-auth.json', variable: 'REGISTRY_AUTH_FILE')]) {
-          sh "podman push quay.io/kjtsanaktsidis/ruby-rr-ci/sources:${env.GIT_COMMIT}"
           sh "podman push quay.io/kjtsanaktsidis/ruby-rr-ci:${env.GIT_COMMIT}"
         }
       }
@@ -24,9 +22,7 @@ pipeline {
       }
       steps {
         withCredentials([file(credentialsId: 'podman-auth.json', variable: 'REGISTRY_AUTH_FILE')]) {
-          sh "podman tag quay.io/kjtsanaktsidis/ruby-rr-ci/sources:${env.GIT_COMMIT} quay.io/kjtsanaktsidis/ruby-rr-ci/sources:latest"
           sh "podman tag quay.io/kjtsanaktsidis/ruby-rr-ci:${env.GIT_COMMIT} quay.io/kjtsanaktsidis/ruby-rr-ci:latest"
-          sh "podman push quay.io/kjtsanaktsidis/ruby-rr-ci/sources:latest"
           sh "podman push quay.io/kjtsanaktsidis/ruby-rr-ci:latest"
         }
       }
