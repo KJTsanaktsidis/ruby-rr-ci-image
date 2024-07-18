@@ -6,8 +6,8 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh "podman build --no-cache --target sources --tag quay.io/kjtsanaktsidis/ruby-rr-ci/sources:${env.GIT_COMMIT} ."
         sh "podman build --no-cache --tag quay.io/kjtsanaktsidis/ruby-rr-ci:${env.GIT_COMMIT} ."
+        sh "podman build --target sources --tag quay.io/kjtsanaktsidis/ruby-rr-ci/sources:${env.GIT_COMMIT} ."
       }
     }
     stage('Push Image (commit)') {
