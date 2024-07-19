@@ -202,6 +202,7 @@ RUN <<BASHSCRIPT
     # we didn't copy the headers there.
     openssl-devel libyaml-devel libffi-devel
     readline-devel gdbm-devel zlib-ng-devel
+    zlib-ng-compat-devel
     # `rr`s dependencies - they won't be automatically downloaded by anything
     libzstd capnproto 
     # Other nescessary utilities
