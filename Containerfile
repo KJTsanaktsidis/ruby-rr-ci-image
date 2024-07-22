@@ -206,7 +206,7 @@ RUN <<BASHSCRIPT
     # `rr`s dependencies - they won't be automatically downloaded by anything
     libzstd capnproto 
     # Other nescessary utilities
-    git wget hostname
+    git wget hostname patch
     # We don't need this to _run_ the tests, but it's convenient to be able to replay
     # them in this container, so include GDB in here too.
     gdb
