@@ -194,7 +194,7 @@ RUN <<BASHSCRIPT
     # Compilers
     clang compiler-rt rust
     # BASERUBY
-    ruby-devel
+    ruby-devel ruby-default-gems ruby-bundled-gems rubygem-rexml
     # Ruby build system deps
     make autoconf diffutils gperf
     # Ruby's build dependency libraries
